@@ -7,7 +7,7 @@ from Branch import Branch
 from Customer import Customer
 
 # read input json file and load all processes
-json_file = "input.json"
+json_file = "read_your_writes_input.json"
 with open(json_file, 'r') as f:
     processes = json.load(f)
 
@@ -34,14 +34,15 @@ print()
 
 # handle customers and execute all events
 # write result to output file
-with open("output.txt", "w") as f:
+with open("output.json", "w") as f:
     for process in processes:
         if process["type"] == "customer":
             customer = Customer(process["id"], process["events"])
             customer.createStub()
             customer.executeEvents()
             result = {"id": customer.id, "recv": customer.recvMsg}
-            f.write(str(result) + "\n")
+            json.dump(result, f,indent=2)
+            f.write("\n")
             f.flush()
 
 # terminate all branches

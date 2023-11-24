@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "recv": [
+    {
+      "interface": "deposit",
+      "result": "success"
+    },
+    {
+      "interface": "query",
+      "result": "success",
+      "balance": 400
+    }
+  ]
+}
