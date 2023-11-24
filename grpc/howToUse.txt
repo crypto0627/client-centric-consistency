@@ -1,0 +1,8 @@
+# Install packages
+pip install grpcio grpcio-tools
+# Generate gRPC code
+python -m grpc_tools.protoc -I. --python_out=.   --pyi_out=. --grpc_python_out=. ./branch.proto
+# Run
+python main.py
+# Result
+Stored in output.txt
